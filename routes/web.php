@@ -21,8 +21,8 @@ Route::get('/home', function () {
     return redirect('/main');
 });
 
-Route::get('/main', 'MainController@index');
-
+Route::get('/main', 'MainController@index')->name('main');
+Route::post('/toFavorites', 'MainController@toFavorites')->name('toFavorites');
 Auth::routes();
 
 
