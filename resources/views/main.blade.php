@@ -4,11 +4,11 @@
     <div class="container">
         <br>
         <div class="header-h1-main">
-            <h1>Список звонков</h1>
+            <h1>Список контактов</h1>
         </div>
         <ul class="list-group list-group-horizontal">
             <li class="list-group-item"><a href="{{route('main')}}">Общий список</a></li>
-            <li class="list-group-item"><a href="{{route('main')}}">Избранное</a></li>
+            <li class="list-group-item"><a href="{{route('favorites')}}">Избранное</a></li>
         </ul>
     </div>
     <br>
@@ -17,7 +17,7 @@
             <ul class="list-group">
                 @foreach($contacts as $contact)
                 <li class="list-group-item ">
-                    {{$contact->name}} /// {{$contact->phone}} ///
+                    {{$contact->name}} /// {{$contact->phone}}
 
                     <form method="post" action="{{route('toFavorites')}}">
                         @csrf

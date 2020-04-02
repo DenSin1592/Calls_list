@@ -20,11 +20,8 @@ class MainController extends Controller
     public function index()
     {
         $contacts = Contact::paginate(10);
-        $user_id = Auth::user()->getAuthIdentifier();
 
-
-
-        return view('main', compact('contacts','user_id'));
+        return view('main', compact('contacts'));
     }
 
     public function toFavorites(Request $request)
@@ -41,5 +38,13 @@ class MainController extends Controller
         $user->contacts()->attach($request->input('id'));
 
         return redirect('/main');
+    }
+
+    public function favorites()
+    {
+        $user = Auth::user();
+        $contacts = $user->contacts;
+
+        return view('favorites', compact('contacts'));
     }
 }

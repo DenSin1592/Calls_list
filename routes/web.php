@@ -23,6 +23,7 @@ Route::get('/home', function () {
 
 Route::get('/main', 'MainController@index')->name('main');
 Route::post('/toFavorites', 'MainController@toFavorites')->name('toFavorites');
+Route::get('/favorites', 'MainController@favorites')->name('favorites');
 Auth::routes();
 
 
